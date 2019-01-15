@@ -9,12 +9,15 @@
 import Foundation
 
 struct UdacityResponse: Codable {
-    let username: String
+    let statusCode: Int
+    let userName: String
     let password: String
-    let udacity: [String: String]
+    let statusMessage: String
     
     enum CodingKeys: String, CodingKey {
         case statusCode = "status_code"
+        case userName
+        case password
         case statusMessage = "status_message"
     }
 }
