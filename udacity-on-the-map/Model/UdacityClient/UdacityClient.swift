@@ -10,8 +10,6 @@
 import Foundation
 
 class UdacityClient {
-
-    static let apiKey = "YOUR_API_KEY"
     
     struct Auth {
         static var accountId = 0
@@ -20,36 +18,17 @@ class UdacityClient {
     }
 
     enum Endpoints {
-        static let base = "https://onthemap-api.udacity.com/v1/session"
-        static let apiKeyParam = "?api_key=\(UdacityClient.apiKey)"
+        static let base = "https://onthemap-api.udacity.com/v1/"
         
-        case login
-        case createSessionId
-        case logout
-        case webAuth
-        case search(String)
-        case markWatchlist
-        case markFavorite
-        case posterImage(String)
+        case session
+        case userdata
         
         var stringValue: String {
             switch self {
-            case .login:
-                return Endpoints.base + "/authentication/token/validate_with_login" + Endpoints.apiKeyParam
-            case .createSessionId:
-                return Endpoints.base + "/authentication/session/new" + Endpoints.apiKeyParam
-            case .logout:
-                return Endpoints.base + "/authentication/session" + Endpoints.apiKeyParam
-            case .webAuth:
-                return "https://www.themoviedb.org/authenticate/\(Auth.requestToken)?redirect_to=themoviemanager:authenticate"
-            case .search(let query):
-                return Endpoints.base + "/search/movie" + Endpoints.apiKeyParam + "&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""))"
-            case .markWatchlist:
-                return Endpoints.base + "/account/\(Auth.accountId)/watchlist" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
-            case .markFavorite:
-                return Endpoints.base + "/account/\(Auth.accountId)/favorite" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
-            case .posterImage(let posterPath):
-                return "https://image.tmdb.org/t/p/w500/" + posterPath
+            case .session:
+                return Endpoints.base + "/session/"
+            case .userdata:
+                return Endpoints.base + "/users/"
             }
         }
         
@@ -58,7 +37,7 @@ class UdacityClient {
         }
     }
     
-    /*
+    
     class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
@@ -75,7 +54,7 @@ class UdacityClient {
                 }
             } catch {
                 do {
-                    let errorResponse = try decoder.decode(TMDBResponse.self, from: data) as Error
+                    let errorResponse = try decoder.decode(UdacityResponse.self, from: data) as Error
                     DispatchQueue.main.async {
                         completion(nil, errorResponse)
                     }
@@ -95,6 +74,7 @@ class UdacityClient {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = try! JSONEncoder().encode(body)
+        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
@@ -180,6 +160,7 @@ class UdacityClient {
         }
     }
     
+    /*
     class func logout(completion: @escaping () -> Void) {
         var request = URLRequest(url: Endpoints.logout.url)
         request.httpMethod = "DELETE"
@@ -238,4 +219,6 @@ class UdacityClient {
         task.resume()
     }
     */
+    
+    
 }
