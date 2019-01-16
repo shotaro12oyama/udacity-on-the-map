@@ -8,17 +8,21 @@
 
 import Foundation
 
-struct UdacityResponse: Codable {
-    let statusCode: Int
+struct UdacityUser: Codable {
     let userName: String
     let password: String
+}
+
+struct UdacityResponse: Codable {
+    let statusCode: Int
     let statusMessage: String
+    let udacityUser: UdacityUser
     
     enum CodingKeys: String, CodingKey {
-        case statusCode = "status_code"
-        case userName
-        case password
+        case statusCode = "status"
         case statusMessage = "status_message"
+        case udacityUser
+        
     }
 }
 
