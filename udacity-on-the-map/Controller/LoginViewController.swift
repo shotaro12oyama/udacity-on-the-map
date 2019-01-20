@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginTapped(_ sender: Any) {
         setLoggingIn(true)
-        UdacityClient.requestLogin(completion: handleLoginResponse(success:Error:))
+        UdacityClient.requestLogin(completionHandler: handleLoginResponse(success:Error:))
     }
     /*
     // MARK: - Navigation
