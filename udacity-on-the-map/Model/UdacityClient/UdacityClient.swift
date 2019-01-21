@@ -31,7 +31,7 @@ class UdacityClient {
         }
     }
     
-    class func requestLogin(completionHandler: @escaping (Bool, Error?) -> Void) {
+    class func requestLogin(username: String?, password: String?, completionHandler: @escaping (Bool, Error?) -> Void) {
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -50,13 +50,14 @@ class UdacityClient {
             let decoder = JSONDecoder()
             do {
                 let loginResponse = try decoder.decode(LoginResponse.self, from: newData!)
-                let session = loginResponse.session
-                print(session)
-                print(session.expiration)
-                completionHandler(true, nil)
-                
+                //let session = loginResponse.session
+                DispatchQueue.main.async {
+                    completionHandler(true, nil)
+                }
             } catch {
-                print(error)
+                DispatchQueue.main.async {
+                    print(error)
+                }
             }
             
         }

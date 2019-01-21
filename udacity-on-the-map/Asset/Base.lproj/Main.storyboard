@@ -106,16 +106,17 @@
                         <outlet property="loginButton" destination="sUt-4a-Ph3" id="ulG-Hw-8ZO"/>
                         <outlet property="passwordTextField" destination="jfF-wG-d4u" id="dNd-hO-un6"/>
                         <outlet property="signUpButton" destination="bqm-cG-wg0" id="oUZ-0Q-Von"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="completeLogin" id="nfI-GB-Np0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gb5-x7-del" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-18.399999999999999" y="134.48275862068968"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="udacity_on_the_map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="udacity_on_the_map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

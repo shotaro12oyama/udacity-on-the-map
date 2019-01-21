@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  udacity-on-the-map
 //
 //  Created by 尾山昌太郎 on 2019/01/12.
@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate {
 
 
     @IBOutlet weak var mapView: MKMapView!

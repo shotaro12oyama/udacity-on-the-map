@@ -35,7 +35,9 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginTapped(_ sender: Any) {
         setLoggingIn(true)
-        UdacityClient.requestLogin(completionHandler: handleLoginResponse(success:Error:))
+        let username = emailTextField.text
+        let password = passwordTextField.text
+        UdacityClient.requestLogin(username: username, password: password, completionHandler: handleLoginResponse(success:Error:))
     }
     /*
     // MARK: - Navigation
@@ -49,6 +51,11 @@ class LoginViewController: UIViewController {
     
     func handleLoginResponse(success: Bool, Error: Error?) {
         print("test handle login")
+        if success {
+            performSegue(withIdentifier: "completeLogin", sender: nil)
+        } else {
+            print("testloginfailure")
+        }
     }
     
 
@@ -65,11 +72,7 @@ class LoginViewController: UIViewController {
     
     func handleSessionResponse(success: Bool, error: Error?) {
         setLoggingIn(false)
-        if success {
-            performSegue(withIdentifier: "completeLogin", sender: nil)
-        } else {
-            showLoginFailure(message: error?.localizedDescription ?? "")
-        }
+
     }
     
     func setLoggingIn(_ loggingIn: Bool) {
