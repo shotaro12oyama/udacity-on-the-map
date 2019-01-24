@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D413C9A21F9422A00A9473E /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D413C9921F9422A00A9473E /* StudentTableViewController.swift */; };
 		8D54EAD021EE007A001A7C3A /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54EACF21EE007A001A7C3A /* LoginResponse.swift */; };
 		E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */; };
 		E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9F21E9612C004DCB42 /* MapViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D413C9921F9422A00A9473E /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
 		8D54EACF21EE007A001A7C3A /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		E27FBD9A21E9612C004DCB42 /* udacity-on-the-map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "udacity-on-the-map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */,
 				E27FBD9F21E9612C004DCB42 /* MapViewController.swift */,
 				E27FBDCD21EB49C7004DCB42 /* LoginViewController.swift */,
+				8D413C9921F9422A00A9473E /* StudentTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */,
 				E27FBDDB21F9192A004DCB42 /* ParseResponse.swift in Sources */,
 				E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */,
+				8D413C9A21F9422A00A9473E /* StudentTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
