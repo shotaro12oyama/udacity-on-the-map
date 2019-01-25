@@ -1,5 +1,5 @@
 //
-//  StudentTableViewController.swift
+//  ParseResultsTableViewController.swift
 //  udacity-on-the-map
 //
 //  Created by 尾山昌太郎 on 2019/01/24.
@@ -8,8 +8,9 @@
 
 import UIKit
 
-class StudentTableViewController: UITableViewController {
+class ParseResultsTableViewController: UITableViewController {
 
+    var perseResults = 
     override func viewDidLoad() {
         super.viewDidLoad()
         //ParseClient.requestStudentInfoList(username: <#T##String?#>, password: <#T##String?#>, completionHandler: <#T##(Bool, Error?) -> Void#>)
@@ -25,23 +26,28 @@ class StudentTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
         return 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-
+        let  = self.memes[(indexPath as NSIndexPath).row]
+        cell.textLabel?.text = meme.topText
+        cell.imageView?.image = meme.memedImage
+        cell.detailTextLabel?.text = meme.bottomText
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
