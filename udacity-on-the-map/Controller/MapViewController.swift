@@ -14,14 +14,21 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
 
     @IBOutlet weak var mapView: MKMapView!
+    var parse: [ParseResponse]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        ParseClient.requestStudentInfoList() { parseResult, error in
+            self.parse = parseResult?.results
+            DispatchQueue.main.async {
+                self.mapView.reloadInputViews()
+            }
+        }
+                
         // The "locations" array is an array of dictionary objects that are similar to the JSON
         // data that you can download from parse.
-        let locations = hardCodedLocationData()
+        let locations = parse.
         
         // We will create an MKPointAnnotation for each dictionary in "locations". The
         // point annotations will be stored in this array, and then provided to the map view.

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D413C9A21F9422A00A9473E /* ParseResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D413C9921F9422A00A9473E /* ParseResultsTableViewController.swift */; };
+		8D413C9D21FB436B00A9473E /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D413C9C21FB436B00A9473E /* Locations.swift */; };
 		8D54EAD021EE007A001A7C3A /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54EACF21EE007A001A7C3A /* LoginResponse.swift */; };
 		E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */; };
 		E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9F21E9612C004DCB42 /* MapViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		8D413C9921F9422A00A9473E /* ParseResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseResultsTableViewController.swift; sourceTree = "<group>"; };
+		8D413C9C21FB436B00A9473E /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		8D54EACF21EE007A001A7C3A /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		E27FBD9A21E9612C004DCB42 /* udacity-on-the-map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "udacity-on-the-map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D413C9B21FB435400A9473E /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				8D413C9C21FB436B00A9473E /* Locations.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		8D54EACB21ED8C17001A7C3A /* Asset */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		E27FBDCF21EB4A18004DCB42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8D413C9B21FB435400A9473E /* Location */,
 				E27FBDD921F9190E004DCB42 /* ParseResponse */,
 				E27FBDD821F91904004DCB42 /* ParseRequest */,
 				E27FBDD521F91888004DCB42 /* ParseClient */,
@@ -373,6 +384,7 @@
 				E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */,
 				E27FBDDB21F9192A004DCB42 /* ParseResponse.swift in Sources */,
 				E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */,
+				8D413C9D21FB436B00A9473E /* Locations.swift in Sources */,
 				8D413C9A21F9422A00A9473E /* ParseResultsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
