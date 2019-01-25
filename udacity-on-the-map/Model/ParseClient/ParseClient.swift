@@ -34,9 +34,14 @@ class ParseClient {
             let decoder = JSONDecoder()
             do {
                 let parseResults = try decoder.decode(ParseResults.self, from: data!)
-                completionHandler(parseResults, nil)
+                DispatchQueue.main.async {
+                    completionHandler(parseResults, nil)
+                }
             } catch {
-                completionHandler(nil, error)
+                DispatchQueue.main.async {
+                    completionHandler(nil, error)
+                }
+                
             }
             
         }
