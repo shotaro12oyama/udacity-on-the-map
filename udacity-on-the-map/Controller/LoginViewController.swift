@@ -50,7 +50,6 @@ class LoginViewController: UIViewController {
     */
     
     func handleLoginResponse(success: Bool, Error: Error?) {
-        print("test handle login")
         if success {
             performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {

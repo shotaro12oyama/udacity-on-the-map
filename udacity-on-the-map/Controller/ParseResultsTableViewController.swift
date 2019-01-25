@@ -10,10 +10,17 @@ import UIKit
 
 class ParseResultsTableViewController: UITableViewController {
 
-    var perseResults = 
+    var parse: [ParseResponse]! = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //ParseClient.requestStudentInfoList(username: <#T##String?#>, password: <#T##String?#>, completionHandler: <#T##(Bool, Error?) -> Void#>)
+        ParseClient.requestStudentInfoList() { parseResult, error in
+            self.parse = parseResult?.results
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -21,6 +28,7 @@ class ParseResultsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     // MARK: - Table view data source
 
@@ -31,23 +39,24 @@ class ParseResultsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        return 0
+        //if parse != nil { return parse.results.count } else { return 1 }
+        return parse.count
+
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "parseListIdentifier", for: indexPath)
 
         // Configure the cell...
-        let  = self.memes[(indexPath as NSIndexPath).row]
-        cell.textLabel?.text = meme.topText
-        cell.imageView?.image = meme.memedImage
-        cell.detailTextLabel?.text = meme.bottomText
+        let parseList = self.parse[(indexPath as NSIndexPath).row]
+        cell.textLabel?.text = parseList.firstName
+        cell.detailTextLabel?.text = parseList.mediaURL
         
         return cell
     }
     
+
 
     /*
     // Override to support conditional editing of the table view.
