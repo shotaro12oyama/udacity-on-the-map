@@ -16,7 +16,7 @@ class ParseResultsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseClient.requestStudentInfoList() { parseResult, error in
-            self.parse = parseResult?.results
+            self.parse = parseResult
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

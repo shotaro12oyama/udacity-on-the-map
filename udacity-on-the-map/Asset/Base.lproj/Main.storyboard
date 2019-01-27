@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="2529" y="495"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Info View Controller-->
         <scene sceneID="tbc-ZP-GCK">
             <objects>
-                <viewController id="gTn-oV-ge1" sceneMemberID="viewController">
+                <viewController id="gTn-oV-ge1" customClass="AddInfoViewController" customModule="udacity_on_the_map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0PF-fd-UnG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

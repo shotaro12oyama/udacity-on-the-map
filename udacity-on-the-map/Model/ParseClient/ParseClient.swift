@@ -19,7 +19,7 @@ class ParseClient {
         
     }
 
-    class func requestStudentInfoList(completionHandler: @escaping (ParseResults?, Error?) -> Void) {
+    class func requestStudentInfoList(completionHandler: @escaping ([ParseResponse], Error?) -> Void) {
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -29,17 +29,17 @@ class ParseClient {
                 return
             }
             //print(String(data: data!, encoding: .utf8)!)
-            
-            
             let decoder = JSONDecoder()
             do {
                 let parseResults = try decoder.decode(ParseResults.self, from: data!)
                 DispatchQueue.main.async {
-                    completionHandler(parseResults, nil)
+                    completionHandler(parseResults.results, nil)
                 }
+                
             } catch {
                 DispatchQueue.main.async {
-                    completionHandler(nil, error)
+                    print(error)
+                    completionHandler([], error)
                 }
                 
             }

@@ -20,7 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         ParseClient.requestStudentInfoList() { parseResult, error in
-            self.parse = parseResult?.results
+            self.parse = parseResult
             DispatchQueue.main.async {
                 self.viewDidLoad()
             }

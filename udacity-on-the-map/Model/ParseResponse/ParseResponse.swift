@@ -13,12 +13,12 @@ struct ParseResponse : Codable{
     let uniqueKey: String?
     let firstName: String?
     let lastName: String?
-    let mapString: String
-    let mediaURL: String
+    let mapString: String?
+    let mediaURL: String?
     let latitude: Double?
     let longitude: Double?
-    let createdAt: String
-    let updatedAt: String
+    let createdAt: String?
+    let updatedAt: String?
 }
 
 struct ParseResults : Codable {
