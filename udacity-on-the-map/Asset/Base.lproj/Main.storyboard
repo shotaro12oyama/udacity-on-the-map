@@ -286,7 +286,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="SIH-1y-BUo">
                                 <connections>
-                                    <segue destination="gTn-oV-ge1" kind="show" id="Lr3-ou-iRt"/>
+                                    <segue destination="gTn-oV-ge1" kind="show" identifier="addStudentInfo" id="Lr3-ou-iRt"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="M2u-AC-Kvg"/>
@@ -294,7 +294,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="krj-hG-HG5" kind="show" id="EnN-qm-g0j"/>
+                        <segue destination="krj-hG-HG5" kind="show" identifier="studentWeb" id="EnN-qm-g0j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjd-W7-Chp" userLabel="First Responder" sceneMemberID="firstResponder"/>

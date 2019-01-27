@@ -13,6 +13,9 @@
 		E26F97AC21FD26690086C046 /* AddInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AB21FD26690086C046 /* AddInfoViewController.swift */; };
 		E26F97AE21FDE4C10086C046 /* LinkedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */; };
 		E26F97B021FE53B40086C046 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AF21FE53B40086C046 /* ParseRequest.swift */; };
+		E26F97B221FE5DBE0086C046 /* SessionInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */; };
+		E26F97B421FE5E280086C046 /* SessionInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97B321FE5E280086C046 /* SessionInfoRequest.swift */; };
+		E26F97B621FE5E990086C046 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97B521FE5E990086C046 /* LogoutRequest.swift */; };
 		E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */; };
 		E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9F21E9612C004DCB42 /* MapViewController.swift */; };
 		E27FBDA321E9612C004DCB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27FBDA121E9612C004DCB42 /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 		E26F97AB21FD26690086C046 /* AddInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoViewController.swift; sourceTree = "<group>"; };
 		E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedInViewController.swift; sourceTree = "<group>"; };
 		E26F97AF21FE53B40086C046 /* ParseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParseRequest.swift; path = "udacity-on-the-map/Controller/ParseRequest.swift"; sourceTree = SOURCE_ROOT; };
+		E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfoResponse.swift; sourceTree = "<group>"; };
+		E26F97B321FE5E280086C046 /* SessionInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfoRequest.swift; sourceTree = "<group>"; };
+		E26F97B521FE5E990086C046 /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
 		E27FBD9A21E9612C004DCB42 /* udacity-on-the-map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "udacity-on-the-map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E27FBD9F21E9612C004DCB42 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				8D54EACF21EE007A001A7C3A /* LoginResponse.swift */,
+				E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */,
 			);
 			path = UdacityResponse;
 			sourceTree = "<group>";
@@ -226,6 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				E27FBDD321F50C44004DCB42 /* LoginRequest.swift */,
+				E26F97B321FE5E280086C046 /* SessionInfoRequest.swift */,
+				E26F97B521FE5E990086C046 /* LogoutRequest.swift */,
 			);
 			path = UdacityRequest;
 			sourceTree = "<group>";
@@ -386,12 +395,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D54EAD021EE007A001A7C3A /* LoginResponse.swift in Sources */,
+				E26F97B621FE5E990086C046 /* LogoutRequest.swift in Sources */,
 				E27FBDD121EB4A48004DCB42 /* UdacityClient.swift in Sources */,
 				E27FBDD721F918A6004DCB42 /* ParseClient.swift in Sources */,
 				E27FBDCE21EB49C7004DCB42 /* LoginViewController.swift in Sources */,
 				E27FBDD421F50C44004DCB42 /* LoginRequest.swift in Sources */,
+				E26F97B221FE5DBE0086C046 /* SessionInfoResponse.swift in Sources */,
 				E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */,
 				E27FBDDB21F9192A004DCB42 /* ParseResponse.swift in Sources */,
+				E26F97B421FE5E280086C046 /* SessionInfoRequest.swift in Sources */,
 				E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */,
 				E26F97B021FE53B40086C046 /* ParseRequest.swift in Sources */,
 				E26F97AE21FDE4C10086C046 /* LinkedInViewController.swift in Sources */,
