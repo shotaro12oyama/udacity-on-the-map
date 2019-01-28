@@ -25,6 +25,7 @@ class AddInfoViewController: UIViewController {
     @IBAction func findLocationButton(_ sender: Any) {
         print(address.text!)
         print(studentWeb.text!)
+        
     }
     
     

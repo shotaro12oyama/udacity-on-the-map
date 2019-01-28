@@ -74,15 +74,24 @@ class LoginViewController: UIViewController {
 
     }
     
+    
     func setLoggingIn(_ loggingIn: Bool) {
-   }
+        if loggingIn {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
+        emailTextField.isEnabled = !loggingIn
+        passwordTextField.isEnabled = !loggingIn
+        loginButton.isEnabled = !loggingIn
+        signUpButton.isEnabled = !loggingIn
+    }
     
     func showLoginFailure(message: String) {
         let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         show(alertVC, sender: nil)
     }
-    
 
     
 }
