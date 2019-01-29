@@ -13,6 +13,7 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
 
 
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     var parse: [ParseResponse]! = []
     
@@ -100,5 +101,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //        }
     //    }
 
+    
+    @IBAction func touchLogoutButton(_ sender: Any) {
+        UdacityClient.requestLogOut() { success, error in
+            if success {
+                self.performSegue(withIdentifier: "logoutToTopFromMap", sender: nil)
+            } else {
+                print(error!)
+            }
+        }
+    }
+    
+    
 }
 

@@ -12,6 +12,7 @@ class ParseResultsTableViewController: UITableViewController {
 
     var parse: [ParseResponse]! = []
     
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,17 @@ class ParseResultsTableViewController: UITableViewController {
         return cell
     }
     
-
+    @IBAction func touchLogoutButton(_ sender: Any) {
+        UdacityClient.requestLogOut() { success, error in
+            if success {
+                self.performSegue(withIdentifier: "logoutToTopFromTab", sender: nil)
+            } else {
+                print(error!)
+            }
+            
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

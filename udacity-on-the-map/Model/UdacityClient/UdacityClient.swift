@@ -11,7 +11,10 @@ import Foundation
 
 class UdacityClient {
     
-    
+    struct Auth {
+        static var username: String?
+        static var key = ""
+    }
     
     enum Endpoints {
         static let base = "https://onthemap-api.udacity.com/v1/"
@@ -39,7 +42,9 @@ class UdacityClient {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         // encoding a JSON body from a string, can also use a Codable struct
-        request.httpBody = "{\"udacity\": {\"username\": \"shotaro.oyama@sumitomocorp.com\", \"password\": \"ooyy1954\"}}".data(using: .utf8)
+        let userInfo = UserInfo(username: username, password: password)
+        let body = LoginInfo(udacity: userInfo)
+        request.httpBody = try! JSONEncoder().encode(body)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error…
@@ -47,12 +52,14 @@ class UdacityClient {
             }
             let range = (5..<data!.count)
             let newData = data?.subdata(in: range) /* subset response data! */
-            print(String(data: newData!, encoding: .utf8)!)
+            //print(String(data: newData!, encoding: .utf8)!)
 
             let decoder = JSONDecoder()
             do {
                 let loginResponse = try decoder.decode(LoginResponse.self, from: newData!)
-                //let session = loginResponse.session
+                Auth.username = username
+                Auth.key = loginResponse.account.key
+                
                 DispatchQueue.main.async {
                     completionHandler(true, nil)
                 }
@@ -67,19 +74,41 @@ class UdacityClient {
     }
     
     
-    class func getSessionInfo(body: SessionInfoRequest, completion: @escaping (SessionInfoResponse?, Error?) -> Void) {
-        
-        let request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/3903878747")!)
+    class func getSessionInfo(completion: @escaping (Bool, Error?) -> Void) {
+        let request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/" + Auth.key)!)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error...
                 return
             }
-            let range = Range(5..<data!.count)
+            let range = (5..<data!.count)
             let newData = data?.subdata(in: range) /* subset response data! */
             print(String(data: newData!, encoding: .utf8)!)
         }
         task.resume()
         
+    }
+    
+    class func requestLogOut(completion: @escaping (Bool, Error?) -> Void) {
+        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error…
+                return
+            }
+            let range = (5..<data!.count)
+            let newData = data?.subdata(in: range) /* subset response data! */
+            //print(String(data: newData!, encoding: .utf8)!)
+        }
+        task.resume()
     }
 }

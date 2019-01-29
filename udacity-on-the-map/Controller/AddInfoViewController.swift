@@ -25,9 +25,17 @@ class AddInfoViewController: UIViewController {
     @IBAction func findLocationButton(_ sender: Any) {
         print(address.text!)
         print(studentWeb.text!)
-        UdacityClient.getSessionInfo(body: <#T##SessionInfoRequest#>, completion: <#T##(SessionInfoResponse?, Error?) -> Void#>)
+        UdacityClient.getSessionInfo(completion: handleRequestTokenResponse(success:error:))
+        
     }
     
+    func handleRequestTokenResponse(success: Bool, error: Error?) {
+        if success {
+            print("success")
+        } else {
+            print(error)
+        }
+    }
     
     /*
     // MARK: - Navigation

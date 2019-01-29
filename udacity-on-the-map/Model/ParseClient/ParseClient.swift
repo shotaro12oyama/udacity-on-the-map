@@ -48,8 +48,8 @@ class ParseClient {
         task.resume()
     }
     
-    
-    class func registerStudentInfo(body: ParseRequest, completion: @escaping (ParseResponse?, Error?) -> Void) {
+    /*
+    class func registerStudentInfo(username: String, completion: @escaping (ParseResponse?, Error?) -> Void) {
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.httpMethod = "POST"
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -79,7 +79,7 @@ class ParseClient {
         task.resume()
     }
  
-    
+    */
 
     
     

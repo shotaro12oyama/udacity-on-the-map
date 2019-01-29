@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Kyt-TZ-MHL">
-                                <rect key="frame" x="16" y="187.5" width="343" height="312.5"/>
+                                <rect key="frame" x="16" y="185" width="343" height="312.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eR-Yd-qlN">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -136,7 +136,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-selected" id="B8e-Sd-CcW"/>
                     <navigationItem key="navigationItem" title="On The Map" id="gZI-r3-L8b">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="qh8-O2-POn"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="qh8-O2-POn">
+                            <connections>
+                                <action selector="touchLogoutButton:" destination="BYZ-38-t0r" id="ifh-mV-Jdc"/>
+                                <segue destination="fO1-Yv-lmS" kind="show" identifier="logoutToTopFromMap" id="Snr-D5-IVB"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="aTK-oI-IfO">
                                 <connections>
@@ -147,6 +152,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="logoutButton" destination="qh8-O2-POn" id="2SA-6W-xbP"/>
                         <outlet property="mapView" destination="gD1-oW-7Qa" id="4v8-vQ-9n5"/>
                     </connections>
                 </viewController>
@@ -163,7 +169,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="s6s-dX-HEn">
-                                <rect key="frame" x="16" y="272" width="343" height="94"/>
+                                <rect key="frame" x="16" y="294" width="343" height="94"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-rN-4Yv">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
@@ -282,7 +288,12 @@
                         <barButtonItem title="Item" id="iBn-5i-xjj"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="On The Map" id="14B-WD-vmX">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="oQ4-xt-6Bi"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="oQ4-xt-6Bi">
+                            <connections>
+                                <action selector="touchLogoutButton:" destination="gfv-HP-urK" id="e8R-tI-L8I"/>
+                                <segue destination="fO1-Yv-lmS" kind="show" identifier="logoutToTopFromTab" id="Uio-NO-QQg"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="SIH-1y-BUo">
                                 <connections>
@@ -294,6 +305,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="logoutButton" destination="oQ4-xt-6Bi" id="LVw-8j-pKj"/>
                         <segue destination="krj-hG-HG5" kind="show" identifier="studentWeb" id="EnN-qm-g0j"/>
                     </connections>
                 </tableViewController>
@@ -358,6 +370,7 @@
         <image name="icon_pin" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lr3-ou-iRt"/>
+        <segue reference="efB-nO-Jy0"/>
+        <segue reference="Snr-D5-IVB"/>
     </inferredMetricsTieBreakers>
 </document>
