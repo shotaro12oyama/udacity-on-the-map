@@ -10,14 +10,14 @@ import UIKit
 
 class ParseResultsTableViewController: UITableViewController {
 
-    var parse: [ParseResponse]! = []
+    //var parse: [ParseResponse]! = []
     
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseClient.requestStudentInfoList() { parseResult, error in
-            self.parse = parseResult
+            ParseClient.parse = parseResult
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -41,7 +41,7 @@ class ParseResultsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //if parse != nil { return parse.results.count } else { return 1 }
-        return parse.count
+        return ParseClient.parse.count
 
     }
 
@@ -50,7 +50,7 @@ class ParseResultsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "parseListIdentifier", for: indexPath)
 
         // Configure the cell...
-        let parseList = self.parse[(indexPath as NSIndexPath).row]
+        let parseList = ParseClient.parse[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = parseList.firstName
         cell.detailTextLabel?.text = parseList.mediaURL
         

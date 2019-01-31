@@ -10,7 +10,7 @@ import Foundation
 
 class ParseClient {
     
-    
+    static var parse: [ParseResponse]! = []
     static let apiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
     
     
@@ -31,9 +31,9 @@ class ParseClient {
             //print(String(data: data!, encoding: .utf8)!)
             let decoder = JSONDecoder()
             do {
-                let parseResults = try decoder.decode(ParseResults.self, from: data!)
+                let parse = try decoder.decode(ParseResults.self, from: data!)
                 DispatchQueue.main.async {
-                    completionHandler(parseResults.results, nil)
+                    completionHandler(parse.results, nil)
                 }
                 
             } catch {
