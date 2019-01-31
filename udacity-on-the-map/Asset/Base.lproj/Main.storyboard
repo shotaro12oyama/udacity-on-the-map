@@ -86,7 +86,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yo5-Si-Mms">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yo5-Si-Mms">
                                         <rect key="frame" x="0.0" y="292.5" width="343" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>

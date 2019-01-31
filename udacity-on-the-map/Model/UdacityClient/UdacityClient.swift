@@ -65,7 +65,7 @@ class UdacityClient {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    print(error)
+                    completionHandler(false, error)
                 }
             }
             

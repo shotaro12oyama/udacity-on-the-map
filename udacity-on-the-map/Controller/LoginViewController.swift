@@ -18,12 +18,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,12 +26,12 @@ class LoginViewController: UIViewController {
         passwordTextField.text = ""
     }
     
-
-    @IBAction func loginTapped(_ sender: Any) {
+    
+    @IBAction func loginTapped(_ sender: UIButton) {
         setLoggingIn(true)
         let username = emailTextField.text
         let password = passwordTextField.text
-        UdacityClient.requestLogin(username: username, password: password, completionHandler: handleLoginResponse(success:Error:))
+        UdacityClient.requestLogin(username: username, password: password, completionHandler: handleLoginResponse(success:error:))
     }
     /*
     // MARK: - Navigation
@@ -49,26 +43,17 @@ class LoginViewController: UIViewController {
     }
     */
     
-    func handleLoginResponse(success: Bool, Error: Error?) {
+    func handleLoginResponse(success: Bool, error: Error?) {
         if success {
             performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
-            print("testloginfailure")
+            showLoginFailure(message: error?.localizedDescription ?? "")
         }
     }
     
-
-    
-    
     @IBAction func loginViaWebsiteTapped() {
     }
-    
-    func handleRequestTokenResponse(success: Bool, error: Error?) {
-    }
-    
-    func handleLoginResponse(success: Bool, error: Error?) {
-    }
-    
+
     func handleSessionResponse(success: Bool, error: Error?) {
         setLoggingIn(false)
 
