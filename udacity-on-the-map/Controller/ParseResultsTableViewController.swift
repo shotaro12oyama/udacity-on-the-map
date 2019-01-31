@@ -52,6 +52,7 @@ class ParseResultsTableViewController: UITableViewController {
         // Configure the cell...
         let parseList = ParseClient.parse[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = parseList.firstName
+        cell.imageView?.image = UIImage(named: "icon_pin")
         cell.detailTextLabel?.text = parseList.mediaURL
         
         return cell

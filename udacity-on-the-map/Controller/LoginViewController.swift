@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
     */
     
     func handleLoginResponse(success: Bool, error: Error?) {
+        setLoggingIn(false)
         if success {
             performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
