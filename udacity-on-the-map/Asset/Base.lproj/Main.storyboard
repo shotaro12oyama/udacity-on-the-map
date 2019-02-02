@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Kyt-TZ-MHL">
-                                <rect key="frame" x="16" y="163" width="343" height="312.5"/>
+                                <rect key="frame" x="16" y="177.5" width="343" height="312.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eR-Yd-qlN">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -94,11 +94,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ARq-Zw-DMe" firstAttribute="trailing" secondItem="Kyt-TZ-MHL" secondAttribute="trailing" constant="16" id="1yb-yc-v4W"/>
-                            <constraint firstItem="Kyt-TZ-MHL" firstAttribute="leading" secondItem="ARq-Zw-DMe" secondAttribute="leading" constant="16" id="L7i-2H-VxQ"/>
-                            <constraint firstItem="Kyt-TZ-MHL" firstAttribute="centerY" secondItem="ARq-Zw-DMe" secondAttribute="centerY" id="gJZ-uo-67D"/>
+                            <constraint firstItem="mo3-0x-uI8" firstAttribute="trailing" secondItem="Kyt-TZ-MHL" secondAttribute="trailing" constant="16" id="1yb-yc-v4W"/>
+                            <constraint firstItem="Kyt-TZ-MHL" firstAttribute="leading" secondItem="mo3-0x-uI8" secondAttribute="leading" constant="16" id="L7i-2H-VxQ"/>
+                            <constraint firstItem="Kyt-TZ-MHL" firstAttribute="centerY" secondItem="5hC-Ft-rcq" secondAttribute="centerY" id="gJZ-uo-67D"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ARq-Zw-DMe"/>
+                        <viewLayoutGuide key="safeArea" id="mo3-0x-uI8"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="yo5-Si-Mms" id="o3T-WF-mnX"/>
@@ -121,25 +121,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gD1-oW-7Qa">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gD1-oW-7Qa">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zY8-z5-HzU"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GfT-8Y-4Xo"/>
-                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lx4-NJ-d0f"/>
-                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OWg-kd-QhI"/>
-                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eOq-LC-iKL"/>
+                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="bottom" secondItem="VsX-uZ-oR6" secondAttribute="bottom" id="GfT-8Y-4Xo"/>
+                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="leading" secondItem="VsX-uZ-oR6" secondAttribute="leading" id="Lx4-NJ-d0f"/>
+                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="top" secondItem="VsX-uZ-oR6" secondAttribute="top" id="OWg-kd-QhI"/>
+                            <constraint firstItem="gD1-oW-7Qa" firstAttribute="trailing" secondItem="VsX-uZ-oR6" secondAttribute="trailing" id="eOq-LC-iKL"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="VsX-uZ-oR6"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-selected" id="B8e-Sd-CcW"/>
                     <navigationItem key="navigationItem" title="On The Map" id="gZI-r3-L8b">
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="qh8-O2-POn">
                             <connections>
                                 <action selector="touchLogoutButton:" destination="BYZ-38-t0r" id="ifh-mV-Jdc"/>
-                                <segue destination="fO1-Yv-lmS" kind="show" identifier="logoutToTopFromMap" id="Snr-D5-IVB"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -154,6 +156,7 @@
                     <connections>
                         <outlet property="logoutButton" destination="qh8-O2-POn" id="2SA-6W-xbP"/>
                         <outlet property="mapView" destination="gD1-oW-7Qa" id="4v8-vQ-9n5"/>
+                        <segue destination="krj-hG-HG5" kind="show" id="xrd-VC-rad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -168,29 +171,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="s6s-dX-HEn">
-                                <rect key="frame" x="16" y="272" width="343" height="94"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="s6s-dX-HEn">
+                                <rect key="frame" x="16" y="272.5" width="343" height="122"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-rN-4Yv">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-rN-4Yv">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Gqf-BN-b3z"/>
+                                            <constraint firstAttribute="height" constant="32" id="Gqf-BN-b3z"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBk-ut-SVO">
-                                        <rect key="frame" x="0.0" y="32" width="343" height="32"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBk-ut-SVO">
+                                        <rect key="frame" x="0.0" y="46" width="343" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="19I-hj-icR"/>
+                                            <constraint firstAttribute="height" constant="32" id="19I-hj-icR"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYH-Ji-ZPC">
-                                        <rect key="frame" x="0.0" y="64" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="92" width="343" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="FIND LOCATION">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -200,16 +203,19 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="ObC-qa-l1H"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="s6s-dX-HEn" firstAttribute="leading" secondItem="04B-Eb-Egh" secondAttribute="leading" constant="16" id="KLM-1n-3lt"/>
-                            <constraint firstItem="s6s-dX-HEn" firstAttribute="centerY" secondItem="04B-Eb-Egh" secondAttribute="centerY" id="kCO-jg-jUG"/>
-                            <constraint firstItem="04B-Eb-Egh" firstAttribute="trailing" secondItem="s6s-dX-HEn" secondAttribute="trailing" constant="16" id="wPc-A0-pRh"/>
-                            <constraint firstItem="s6s-dX-HEn" firstAttribute="centerX" secondItem="04B-Eb-Egh" secondAttribute="centerX" id="y1f-yj-XjB"/>
+                            <constraint firstItem="s6s-dX-HEn" firstAttribute="leading" secondItem="2Ak-ma-br7" secondAttribute="leading" constant="16" id="KLM-1n-3lt"/>
+                            <constraint firstItem="s6s-dX-HEn" firstAttribute="centerY" secondItem="0PF-fd-UnG" secondAttribute="centerY" id="kCO-jg-jUG"/>
+                            <constraint firstItem="2Ak-ma-br7" firstAttribute="trailing" secondItem="s6s-dX-HEn" secondAttribute="trailing" constant="16" id="wPc-A0-pRh"/>
+                            <constraint firstItem="s6s-dX-HEn" firstAttribute="centerX" secondItem="2Ak-ma-br7" secondAttribute="centerX" id="y1f-yj-XjB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="04B-Eb-Egh"/>
+                        <viewLayoutGuide key="safeArea" id="2Ak-ma-br7"/>
                     </view>
                     <connections>
                         <outlet property="address" destination="yXm-rN-4Yv" id="MMt-Tn-qJz"/>
@@ -219,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cj-vm-tpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3636" y="493"/>
+            <point key="canvasLocation" x="3636" y="492.50374812593708"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Pie-nq-cvH">
@@ -287,13 +293,12 @@
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="oQ4-xt-6Bi">
                             <connections>
                                 <action selector="touchLogoutButton:" destination="gfv-HP-urK" id="e8R-tI-L8I"/>
-                                <segue destination="fO1-Yv-lmS" kind="show" identifier="logoutToTopFromTab" id="Uio-NO-QQg"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="SIH-1y-BUo">
                                 <connections>
-                                    <segue destination="gTn-oV-ge1" kind="show" identifier="addStudentInfo" id="Lr3-ou-iRt"/>
+                                    <segue destination="gTn-oV-ge1" kind="presentation" identifier="addStudentInfo" id="Lr3-ou-iRt"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="M2u-AC-Kvg"/>
@@ -302,7 +307,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="logoutButton" destination="oQ4-xt-6Bi" id="LVw-8j-pKj"/>
-                        <segue destination="krj-hG-HG5" kind="show" identifier="studentWeb" id="EnN-qm-g0j"/>
+                        <segue destination="krj-hG-HG5" kind="show" identifier="LinkedInViewController" id="EnN-qm-g0j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjd-W7-Chp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,17 +317,36 @@
         <!--Linked In View Controller-->
         <scene sceneID="sfg-Ve-tcU">
             <objects>
-                <viewController id="krj-hG-HG5" customClass="LinkedInViewController" customModule="udacity_on_the_map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LinkedInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="krj-hG-HG5" customClass="LinkedInViewController" customModule="udacity_on_the_map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9aC-d0-iRK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bF-aY-tbn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="vbg-e0-c9q"/>
+                        <constraints>
+                            <constraint firstItem="0bF-aY-tbn" firstAttribute="bottom" secondItem="OrM-YM-sBH" secondAttribute="bottom" id="3eO-Ow-j3g"/>
+                            <constraint firstItem="0bF-aY-tbn" firstAttribute="top" secondItem="OrM-YM-sBH" secondAttribute="top" id="bee-eb-iTV"/>
+                            <constraint firstItem="0bF-aY-tbn" firstAttribute="trailing" secondItem="OrM-YM-sBH" secondAttribute="trailing" id="cBT-Gr-vva"/>
+                            <constraint firstItem="0bF-aY-tbn" firstAttribute="leading" secondItem="OrM-YM-sBH" secondAttribute="leading" id="nB0-y9-n6i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OrM-YM-sBH"/>
                     </view>
+                    <connections>
+                        <outlet property="linkedInPage" destination="0bF-aY-tbn" id="tFd-yW-isy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMZ-cr-Dxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3636" y="-388"/>
+            <point key="canvasLocation" x="3636" y="-388.15592203898052"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dQG-fc-pbu">
@@ -365,7 +389,7 @@
         <image name="icon_mapview-selected" width="75" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xrd-VC-rad"/>
         <segue reference="Lr3-ou-iRt"/>
-        <segue reference="Uio-NO-QQg"/>
     </inferredMetricsTieBreakers>
 </document>

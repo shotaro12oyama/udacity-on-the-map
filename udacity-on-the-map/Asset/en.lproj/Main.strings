@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Don't have account?"; ObjectID = "0Qb-hf-SZs"; */
+"0Qb-hf-SZs.text" = "Don't have account?";
+
+/* Class = "UINavigationItem"; title = "On The Map"; ObjectID = "14B-WD-vmX"; */
+"14B-WD-vmX.title" = "On The Map";
+
+/* Class = "UILabel"; text = "Login with Email"; ObjectID = "9eR-Yd-qlN"; */
+"9eR-Yd-qlN.text" = "Login with Email";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "DSK-t8-veR"; */
+"DSK-t8-veR.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "FIND LOCATION"; ObjectID = "XYH-Ji-ZPC"; */
+"XYH-Ji-ZPC.normalTitle" = "FIND LOCATION";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "bqm-cG-wg0"; */
+"bqm-cG-wg0.normalTitle" = "Sign Up";
+
+/* Class = "UITextField"; placeholder = "URL"; ObjectID = "cBk-ut-SVO"; */
+"cBk-ut-SVO.placeholder" = "URL";
+
+/* Class = "UINavigationItem"; title = "On The Map"; ObjectID = "gZI-r3-L8b"; */
+"gZI-r3-L8b.title" = "On The Map";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "gfZ-0r-C5A"; */
+"gfZ-0r-C5A.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "gnL-vz-6kU"; */
+"gnL-vz-6kU.text" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "iBn-5i-xjj"; */
+"iBn-5i-xjj.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "jfF-wG-d4u"; */
+"jfF-wG-d4u.placeholder" = "Password";
+
+/* Class = "UIBarButtonItem"; title = "LOGOUT"; ObjectID = "oQ4-xt-6Bi"; */
+"oQ4-xt-6Bi.title" = "LOGOUT";
+
+/* Class = "UIBarButtonItem"; title = "LOGOUT"; ObjectID = "qh8-O2-POn"; */
+"qh8-O2-POn.title" = "LOGOUT";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "sUt-4a-Ph3"; */
+"sUt-4a-Ph3.normalTitle" = "Login";
+
+/* Class = "UITextField"; placeholder = "Location"; ObjectID = "yXm-rN-4Yv"; */
+"yXm-rN-4Yv.placeholder" = "Location";

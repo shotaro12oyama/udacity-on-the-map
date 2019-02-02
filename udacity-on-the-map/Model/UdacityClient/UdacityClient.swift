@@ -89,7 +89,7 @@ class UdacityClient {
         
     }
     
-    class func requestLogOut(completion: @escaping (Bool, Error?) -> Void) {
+    class func requestLogOut(completionHandler: @escaping (Bool, Error?) -> Void) {
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
@@ -103,11 +103,14 @@ class UdacityClient {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error…
-                return
+                completionHandler(false, nil)
             }
-            let range = (5..<data!.count)
-            let newData = data?.subdata(in: range) /* subset response data! */
+            //let range = (5..<data!.count)
+            //let newData = data?.subdata(in: range) /* subset response data! */
             //print(String(data: newData!, encoding: .utf8)!)
+            DispatchQueue.main.async {
+                completionHandler(true, nil)
+            }
         }
         task.resume()
     }

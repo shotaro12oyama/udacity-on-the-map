@@ -8,15 +8,19 @@
 
 import UIKit
 
+
 class AddInfoViewController: UIViewController {
 
     @IBOutlet weak var address: UITextField!
     @IBOutlet weak var studentWeb: UITextField!
     @IBOutlet weak var findLocation: UIButton!
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //showOverWriteAlert()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -37,14 +41,11 @@ class AddInfoViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showOverWriteAlert() {
+        let alertVC = UIAlertController(title: "Login Failed", message: "test", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
+        
     }
-    */
-
+    
 }

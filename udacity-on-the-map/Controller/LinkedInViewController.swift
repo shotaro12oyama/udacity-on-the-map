@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import WebKit
 
 class LinkedInViewController: UIViewController {
 
+    @IBOutlet weak var linkedInPage: WKWebView!
+    var webURL: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        let urlRequest = URLRequest(url:URL(string:webURL ?? "http://google.com")!)
+        linkedInPage.load(urlRequest)
+        view.addSubview(linkedInPage)
     }
     
 

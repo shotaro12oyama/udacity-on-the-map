@@ -15,28 +15,27 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
-    var parse: [ParseResponse]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         ParseClient.requestStudentInfoList() { parseResult, error in
-            self.parse = parseResult
+            ParseClient.parse = parseResult
             DispatchQueue.main.async {
                 self.viewDidLoad()
             }
         }
         
         var annotations = [MKPointAnnotation]()
-        for dictionary in self.parse {
+        for dictionary in ParseClient.parse {
             if dictionary.latitude != nil, dictionary.longitude != nil, dictionary.firstName != nil, dictionary.lastName != nil, dictionary.mediaURL != nil {
                 let lat = CLLocationDegrees(dictionary.latitude!)
                 let long = CLLocationDegrees(dictionary.longitude!)
                 
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 
-                let first = dictionary.firstName
-                let last = dictionary.lastName
+                let first = dictionary.firstName as! String
+                let last = dictionary.lastName as! String
                 let mediaURL = dictionary.mediaURL
                 // Here we create the annotation and set its coordiate, title, and subtitle properties
                 let annotation = MKPointAnnotation()
@@ -86,12 +85,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // to the URL specified in the annotationViews subtitle property.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
             if let toOpen = view.annotation?.subtitle! {
-                app.open(URL(string: toOpen)!, options: [:], completionHandler: {result in print(result)})
+                let detailController = self.storyboard!.instantiateViewController(withIdentifier: "LinkedInViewController") as! LinkedInViewController
+                detailController.webURL = toOpen
+                self.navigationController!.pushViewController(detailController, animated: true)
             }
         }
     }
+    
+    
     
     //    func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
     //
@@ -105,7 +107,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func touchLogoutButton(_ sender: Any) {
         UdacityClient.requestLogOut() { success, error in
             if success {
-                self.performSegue(withIdentifier: "logoutToTopFromMap", sender: nil)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
             } else {
                 print(error!)
             }
