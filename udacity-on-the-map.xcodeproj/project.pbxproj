@@ -15,6 +15,8 @@
 		E26F97AE21FDE4C10086C046 /* LinkedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */; };
 		E26F97B221FE5DBE0086C046 /* SessionInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */; };
 		E26F97B621FE5E990086C046 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97B521FE5E990086C046 /* LogoutRequest.swift */; };
+		E26F97BC22057DD10086C046 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97BB22057DD10086C046 /* FinishViewController.swift */; };
+		E26F97BE2206DDDD0086C046 /* PublicUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97BD2206DDDD0086C046 /* PublicUserInfo.swift */; };
 		E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */; };
 		E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FBD9F21E9612C004DCB42 /* MapViewController.swift */; };
 		E27FBDA321E9612C004DCB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27FBDA121E9612C004DCB42 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedInViewController.swift; sourceTree = "<group>"; };
 		E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfoResponse.swift; sourceTree = "<group>"; };
 		E26F97B521FE5E990086C046 /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
+		E26F97BB22057DD10086C046 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		E26F97BD2206DDDD0086C046 /* PublicUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicUserInfo.swift; sourceTree = "<group>"; };
 		E27FBD9A21E9612C004DCB42 /* udacity-on-the-map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "udacity-on-the-map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27FBD9D21E9612C004DCB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E27FBD9F21E9612C004DCB42 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			children = (
 				8D54EACF21EE007A001A7C3A /* LoginResponse.swift */,
 				E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */,
+				E26F97BD2206DDDD0086C046 /* PublicUserInfo.swift */,
 			);
 			path = UdacityResponse;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				8D413C9921F9422A00A9473E /* ParseResultsTableViewController.swift */,
 				E26F97AB21FD26690086C046 /* AddInfoViewController.swift */,
 				E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */,
+				E26F97BB22057DD10086C046 /* FinishViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -369,9 +375,11 @@
 				E27FBDD121EB4A48004DCB42 /* UdacityClient.swift in Sources */,
 				E27FBDD721F918A6004DCB42 /* ParseClient.swift in Sources */,
 				E27FBDCE21EB49C7004DCB42 /* LoginViewController.swift in Sources */,
+				E26F97BC22057DD10086C046 /* FinishViewController.swift in Sources */,
 				E26F97B221FE5DBE0086C046 /* SessionInfoResponse.swift in Sources */,
 				E27FBDA021E9612C004DCB42 /* MapViewController.swift in Sources */,
 				E27FBDDB21F9192A004DCB42 /* ParseResponse.swift in Sources */,
+				E26F97BE2206DDDD0086C046 /* PublicUserInfo.swift in Sources */,
 				8D413CA121FFD45500A9473E /* LoginInfo.swift in Sources */,
 				E27FBD9E21E9612C004DCB42 /* AppDelegate.swift in Sources */,
 				E26F97AE21FDE4C10086C046 /* LinkedInViewController.swift in Sources */,

@@ -16,6 +16,10 @@ class UdacityClient {
         static var key = ""
     }
     
+    struct PublicInfo {
+        static var nickname: String?
+    }
+    
     enum Endpoints {
         static let base = "https://onthemap-api.udacity.com/v1/"
         
@@ -84,6 +88,7 @@ class UdacityClient {
             let range = (5..<data!.count)
             let newData = data?.subdata(in: range) /* subset response data! */
             print(String(data: newData!, encoding: .utf8)!)
+            completion(true, nil)
         }
         task.resume()
         
@@ -110,6 +115,31 @@ class UdacityClient {
             //print(String(data: newData!, encoding: .utf8)!)
             DispatchQueue.main.async {
                 completionHandler(true, nil)
+            }
+        }
+        task.resume()
+    }
+    
+    
+    class func getPublicUserInfo(key: String!, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/\(key!)")!)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error...
+                return
+            }
+            let range = (5..<data!.count)
+            let newData = data?.subdata(in: range) /* subset response data! */
+            //print(String(data: data!, encoding: .utf8)!)
+            
+            let decoder = JSONDecoder()
+            do {
+                let userInfoResponse = try decoder.decode(PublicUserInfo.self, from: newData!)
+                UdacityClient.PublicInfo.nickname = userInfoResponse.nickname!
+                print(userInfoResponse)
+                completionHandler(true, nil)
+            } catch {
+                completionHandler(false, error)
             }
         }
         task.resume()

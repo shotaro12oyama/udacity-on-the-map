@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
+
+
 
 
 class AddInfoViewController: UIViewController {
@@ -19,33 +22,73 @@ class AddInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //showOverWriteAlert()
-        
         // Do any additional setup after loading the view.
     }
-
     
-    
-    @IBAction func findLocationButton(_ sender: Any) {
-        print(address.text!)
-        print(studentWeb.text!)
-        UdacityClient.getSessionInfo(completion: handleRequestTokenResponse(success:error:))
-        
+    override func viewWillAppear(_ animated: Bool) {
+        address.text = ""
+        studentWeb.text = ""
     }
-    
-    func handleRequestTokenResponse(success: Bool, error: Error?) {
-        if success {
-            print("success")
+
+    @IBAction func findLocationButton(_ sender: Any) {
+        if address.text == "" || studentWeb.text == "" {
+            showEmptyFieldAlert()
         } else {
-            print(error)
+            ParseClient.getStudentLocationInfo(key: UdacityClient.Auth.key, completionHandler: handleRequestResponse(result:error:))
         }
     }
     
-    func showOverWriteAlert() {
-        let alertVC = UIAlertController(title: "Login Failed", message: "test", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
-        
+    func handleRequestResponse(result: ParseClient.registerStatus?, error: Error?) {
+        if result == ParseClient.registerStatus.registered {
+            DispatchQueue.main.async {
+                self.showOverWriteAlert()
+                self.performSegue(withIdentifier: "putConfirmLocation", sender: nil)
+            }
+        } else if result == ParseClient.registerStatus.unregistered {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "postConfirmLocation", sender: nil)
+            }
+        } else {
+            print (error!)
+        }
     }
     
+    func handlePublicInfoResponse(success: Bool, error: Error?) {
+        if success {
+            print("successfully get public info")
+        } else {
+            print(error!)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        UdacityClient.getPublicUserInfo(key: UdacityClient.Auth.key, completionHandler: handlePublicInfoResponse(success:error:))
+        if (segue.identifier == "putConfirmLocation") {
+            let _: FinishViewController = (segue.destination as? FinishViewController)!
+            Locations.setLocations(method: "PUT", address: address.text!, nickName: UdacityClient.PublicInfo.nickname!, mediaURL: studentWeb.text!)
+        }
+        if (segue.identifier == "postConfirmLocation") {
+            let _: FinishViewController = (segue.destination as? FinishViewController)!
+            Locations.setLocations(method: "POST", address: address.text!, nickName: UdacityClient.PublicInfo.nickname!, mediaURL: studentWeb.text!)
+        }
+    }
+    
+
+    
+    func showOverWriteAlert() {
+        let alertVC = UIAlertController(title: "Do you want to overwrite?", message: "Record is detected!", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    func showEmptyFieldAlert() {
+        let alertVC = UIAlertController(title: "Field is Empty", message: "Please fill your information!", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
+
+
+    
 }
+
+

@@ -156,7 +156,7 @@
                     <connections>
                         <outlet property="logoutButton" destination="qh8-O2-POn" id="2SA-6W-xbP"/>
                         <outlet property="mapView" destination="gD1-oW-7Qa" id="4v8-vQ-9n5"/>
-                        <segue destination="krj-hG-HG5" kind="show" id="xrd-VC-rad"/>
+                        <segue destination="krj-hG-HG5" kind="show" identifier="LinkedInViewController" id="xrd-VC-rad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -194,7 +194,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYH-Ji-ZPC">
                                         <rect key="frame" x="0.0" y="92" width="343" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.19607843137254902" green="0.4823529411764706" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="FIND LOCATION">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -213,7 +213,6 @@
                             <constraint firstItem="s6s-dX-HEn" firstAttribute="leading" secondItem="2Ak-ma-br7" secondAttribute="leading" constant="16" id="KLM-1n-3lt"/>
                             <constraint firstItem="s6s-dX-HEn" firstAttribute="centerY" secondItem="0PF-fd-UnG" secondAttribute="centerY" id="kCO-jg-jUG"/>
                             <constraint firstItem="2Ak-ma-br7" firstAttribute="trailing" secondItem="s6s-dX-HEn" secondAttribute="trailing" constant="16" id="wPc-A0-pRh"/>
-                            <constraint firstItem="s6s-dX-HEn" firstAttribute="centerX" secondItem="2Ak-ma-br7" secondAttribute="centerX" id="y1f-yj-XjB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Ak-ma-br7"/>
                     </view>
@@ -221,11 +220,57 @@
                         <outlet property="address" destination="yXm-rN-4Yv" id="MMt-Tn-qJz"/>
                         <outlet property="findLocation" destination="XYH-Ji-ZPC" id="s0A-to-bGY"/>
                         <outlet property="studentWeb" destination="cBk-ut-SVO" id="QdW-qI-8hg"/>
+                        <segue destination="Cb1-Df-jSh" kind="show" identifier="postConfirmLocation" id="gJ0-at-Y30"/>
+                        <segue destination="Cb1-Df-jSh" kind="show" identifier="putConfirmLocation" id="3k9-Ji-Ecy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cj-vm-tpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3636" y="492.50374812593708"/>
+        </scene>
+        <!--Finish View Controller-->
+        <scene sceneID="fHc-df-1Fd">
+            <objects>
+                <viewController id="Cb1-Df-jSh" customClass="FinishViewController" customModule="udacity_on_the_map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I85-JQ-zqg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vrU-4x-JX0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Cb1-Df-jSh" id="3sT-bt-uHd"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXL-7A-5ca">
+                                <rect key="frame" x="16" y="433" width="343" height="34"/>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.48627450980392156" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Finish">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vrU-4x-JX0" firstAttribute="trailing" secondItem="zDz-Ca-eZ7" secondAttribute="trailing" id="1Oy-ht-3xI"/>
+                            <constraint firstItem="vrU-4x-JX0" firstAttribute="top" secondItem="zDz-Ca-eZ7" secondAttribute="top" id="2Pk-l1-Iuh"/>
+                            <constraint firstItem="vrU-4x-JX0" firstAttribute="leading" secondItem="zDz-Ca-eZ7" secondAttribute="leading" id="8b1-uM-Xso"/>
+                            <constraint firstItem="zDz-Ca-eZ7" firstAttribute="trailing" secondItem="aXL-7A-5ca" secondAttribute="trailing" constant="16" id="CYc-iu-8kT"/>
+                            <constraint firstItem="zDz-Ca-eZ7" firstAttribute="bottom" secondItem="aXL-7A-5ca" secondAttribute="bottom" constant="107" id="LrU-2N-3F4"/>
+                            <constraint firstItem="vrU-4x-JX0" firstAttribute="bottom" secondItem="zDz-Ca-eZ7" secondAttribute="bottom" id="wIk-iA-W2E"/>
+                            <constraint firstItem="aXL-7A-5ca" firstAttribute="leading" secondItem="zDz-Ca-eZ7" secondAttribute="leading" constant="16" id="yBo-wB-Id6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zDz-Ca-eZ7"/>
+                    </view>
+                    <connections>
+                        <outlet property="finishButton" destination="aXL-7A-5ca" id="Fdz-Ta-5ky"/>
+                        <outlet property="mapView" destination="vrU-4x-JX0" id="kpR-NF-eTg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z7Z-aZ-4FQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4778.3999999999996" y="494.30284857571218"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Pie-nq-cvH">
@@ -298,7 +343,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="SIH-1y-BUo">
                                 <connections>
-                                    <segue destination="gTn-oV-ge1" kind="presentation" identifier="addStudentInfo" id="Lr3-ou-iRt"/>
+                                    <segue destination="gTn-oV-ge1" kind="show" id="KYp-yw-Tql"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="M2u-AC-Kvg"/>
@@ -323,7 +368,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bF-aY-tbn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -389,7 +434,8 @@
         <image name="icon_mapview-selected" width="75" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xrd-VC-rad"/>
-        <segue reference="Lr3-ou-iRt"/>
+        <segue reference="EnN-qm-g0j"/>
+        <segue reference="gJ0-at-Y30"/>
+        <segue reference="KYp-yw-Tql"/>
     </inferredMetricsTieBreakers>
 </document>
