@@ -34,18 +34,22 @@ class AddInfoViewController: UIViewController {
         if address.text == "" || studentWeb.text == "" {
             showEmptyFieldAlert()
         } else {
+            UdacityClient.getPublicUserInfo(completionHandler: handlePublicInfoResponse(success:error:))
             ParseClient.getStudentLocationInfo(key: UdacityClient.Auth.key, completionHandler: handleRequestResponse(result:error:))
         }
     }
     
     func handleRequestResponse(result: ParseClient.registerStatus?, error: Error?) {
+        Locations.setLocations(address: self.address.text!, userName: UdacityClient.PublicInfo.firstName!, mediaURL: self.studentWeb.text!)
         if result == ParseClient.registerStatus.registered {
             DispatchQueue.main.async {
+                Locations.setHttpMethod(httpMethod: "PUT")
                 self.showOverWriteAlert()
                 self.performSegue(withIdentifier: "putConfirmLocation", sender: nil)
             }
         } else if result == ParseClient.registerStatus.unregistered {
             DispatchQueue.main.async {
+                Locations.setHttpMethod(httpMethod: "POST")
                 self.performSegue(withIdentifier: "postConfirmLocation", sender: nil)
             }
         } else {
@@ -53,26 +57,15 @@ class AddInfoViewController: UIViewController {
         }
     }
     
+    
     func handlePublicInfoResponse(success: Bool, error: Error?) {
         if success {
             print("successfully get public info")
         } else {
-            print(error!)
+            print("could not get public info")
+            print(error)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        UdacityClient.getPublicUserInfo(key: UdacityClient.Auth.key, completionHandler: handlePublicInfoResponse(success:error:))
-        if (segue.identifier == "putConfirmLocation") {
-            let _: FinishViewController = (segue.destination as? FinishViewController)!
-            Locations.setLocations(method: "PUT", address: address.text!, nickName: UdacityClient.PublicInfo.nickname!, mediaURL: studentWeb.text!)
-        }
-        if (segue.identifier == "postConfirmLocation") {
-            let _: FinishViewController = (segue.destination as? FinishViewController)!
-            Locations.setLocations(method: "POST", address: address.text!, nickName: UdacityClient.PublicInfo.nickname!, mediaURL: studentWeb.text!)
-        }
-    }
-    
 
     
     func showOverWriteAlert() {

@@ -11,30 +11,18 @@ import CoreLocation
 
 class Locations {
     static var httpMethod: String = "POST"
-    static var address: String = "Tokyo"
-    static var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 135.0, longitude: 35.0)
-    static var userName: String = "nick name"
-    static var mediaURL: String = "http://google.com"
+    static var address: String?
+    static var userName: String?
+    static var mediaURL: String?
     
-    class func setLocations(method: String, address: String, nickName: String, mediaURL: String) {
-        self.httpMethod = method
-        self.address = address
-        self.location = getCoordinate(address: address)
-        self.userName = nickName
-        self.mediaURL = mediaURL
+    class func setHttpMethod (httpMethod: String) {
+        self.httpMethod = httpMethod
     }
     
-    class func getCoordinate(address: String) -> CLLocationCoordinate2D  {
-        var lat: Double = 135.0
-        var lng: Double = 35.0
-        CLGeocoder().geocodeAddressString(address) { placemarks, error in
-            if error != nil {
-                print(error!)
-            }
-            lat = placemarks?.first?.location?.coordinate.latitude ?? 135.0
-            lng = placemarks?.first?.location?.coordinate.longitude ?? 35.0
-        }
-        return CLLocationCoordinate2D(latitude: lat, longitude: lng)
+    class func setLocations(address: String, userName: String, mediaURL: String) {
+        self.address = address
+        self.userName = userName
+        self.mediaURL = mediaURL
     }
     
 }

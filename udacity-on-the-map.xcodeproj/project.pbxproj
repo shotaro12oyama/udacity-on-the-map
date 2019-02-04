@@ -11,6 +11,7 @@
 		8D413C9D21FB436B00A9473E /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D413C9C21FB436B00A9473E /* Locations.swift */; };
 		8D413CA121FFD45500A9473E /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D413CA021FFD45500A9473E /* LoginInfo.swift */; };
 		8D54EAD021EE007A001A7C3A /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54EACF21EE007A001A7C3A /* LoginResponse.swift */; };
+		8D6D71D22208125300862ADC /* AddParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D71D12208125300862ADC /* AddParseRequest.swift */; };
 		E26F97AC21FD26690086C046 /* AddInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AB21FD26690086C046 /* AddInfoViewController.swift */; };
 		E26F97AE21FDE4C10086C046 /* LinkedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */; };
 		E26F97B221FE5DBE0086C046 /* SessionInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */; };
@@ -52,6 +53,7 @@
 		8D413C9C21FB436B00A9473E /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		8D413CA021FFD45500A9473E /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		8D54EACF21EE007A001A7C3A /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		8D6D71D12208125300862ADC /* AddParseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParseRequest.swift; sourceTree = "<group>"; };
 		E26F97AB21FD26690086C046 /* AddInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoViewController.swift; sourceTree = "<group>"; };
 		E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedInViewController.swift; sourceTree = "<group>"; };
 		E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfoResponse.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 			path = UdacityResponse;
 			sourceTree = "<group>";
 		};
+		8D6D71D02208123E00862ADC /* ParseRequest */ = {
+			isa = PBXGroup;
+			children = (
+				8D6D71D12208125300862ADC /* AddParseRequest.swift */,
+			);
+			path = ParseRequest;
+			sourceTree = "<group>";
+		};
 		E27FBD9121E9612C004DCB42 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 		E27FBDCF21EB4A18004DCB42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8D6D71D02208123E00862ADC /* ParseRequest */,
 				8D413C9B21FB435400A9473E /* Location */,
 				E27FBDD921F9190E004DCB42 /* ParseResponse */,
 				E27FBDD521F91888004DCB42 /* ParseClient */,
@@ -385,6 +396,7 @@
 				E26F97AE21FDE4C10086C046 /* LinkedInViewController.swift in Sources */,
 				8D413C9D21FB436B00A9473E /* Locations.swift in Sources */,
 				E26F97AC21FD26690086C046 /* AddInfoViewController.swift in Sources */,
+				8D6D71D22208125300862ADC /* AddParseRequest.swift in Sources */,
 				8D413C9A21F9422A00A9473E /* ParseResultsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,6 +18,8 @@ class UdacityClient {
     
     struct PublicInfo {
         static var nickname: String?
+        static var firstName: String?
+        static var lastName: String?
     }
     
     enum Endpoints {
@@ -121,8 +123,8 @@ class UdacityClient {
     }
     
     
-    class func getPublicUserInfo(key: String!, completionHandler: @escaping (Bool, Error?) -> Void) {
-        let request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/\(key!)")!)
+    class func getPublicUserInfo(completionHandler: @escaping (Bool, Error?) -> Void) {
+        let request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/" + Auth.key)!)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error...
@@ -135,11 +137,16 @@ class UdacityClient {
             let decoder = JSONDecoder()
             do {
                 let userInfoResponse = try decoder.decode(PublicUserInfo.self, from: newData!)
-                UdacityClient.PublicInfo.nickname = userInfoResponse.nickname!
-                print(userInfoResponse)
-                completionHandler(true, nil)
+                DispatchQueue.main.async {
+                    PublicInfo.nickname = userInfoResponse.nickname
+                    PublicInfo.firstName = userInfoResponse.firstName
+                    PublicInfo.lastName = userInfoResponse.lastName
+                    completionHandler(true, nil)
+                }
             } catch {
-                completionHandler(false, error)
+                DispatchQueue.main.async {
+                    completionHandler(false, error)
+                }
             }
         }
         task.resume()

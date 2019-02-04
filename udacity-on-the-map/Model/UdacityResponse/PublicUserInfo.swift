@@ -11,13 +11,13 @@ import Foundation
 struct PublicUserInfo : Codable {
     let memberships: [String?]
     let externalAccounts: [String?]
-    let nickname: String?
+    let nickname: String
     let registered: Bool?
     let hasPassword: Bool?
     let affiliateProfile: [String?]
     let email: EmailParam?
-    let lastName: String?
-    let firstName: String?
+    let lastName: String
+    let firstName: String
     //let enrollments: [String?]
     //let guardInfo: Any?
     let socialAccounts: [String?]
@@ -66,29 +66,3 @@ struct EmailParam: Codable {
     }
 }
 
-/*
-struct UserGuard: Codable {
-    let guardInfo: GuardInfo?
-    let registered: Bool?
-    let nickname: String?
-    let key: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case guardInfo = "guard"
-        case registered = "_registered"
-        case nickname
-        case key
-    }
-    
-}
-
-struct GuardInfo : Codable {
-    let allowedBehaviors: [String?]
-    
-    enum CodingKeys: String, CodingKey {
-        case allowedBehaviors = "allowed_behaviors"
-    }
-}
-
-{"_memberships":[],"external_accounts":[],"nickname":"Alexie Ortiz","_registered":true,"_has_password":true,"_affiliate_profiles":[],"email":{"_verification_code_sent":true,"address":"alexie.ortiz@onthemap.udacity.com","_verified":true},"last_name":"Ortiz","first_name":"Alexie","_enrollments":[],"guard":{},"social_accounts":[],"_cohort_keys":[],"employer_sharing":false,"_image_url":"https:\/\/robohash.org\/udacity-700314849","tags":[],"key":"700314849","_badges":[],"email_preferences":{},"_principals":[]}
-*/

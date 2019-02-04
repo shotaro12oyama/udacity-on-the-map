@@ -15,19 +15,28 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var finishButton: UIButton!
 
+    var lat: Double?
+    var lng: Double?
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Here we create the annotation and set its coordiate, title, and subtitle properties
+        
         let annotation = MKPointAnnotation()
-        annotation.coordinate = Locations.location
-        annotation.title = Locations.userName
-        annotation.subtitle = Locations.mediaURL
-        print(Locations.userName)
-        print(Locations.mediaURL)
-        print(Locations.location)
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(Locations.address!) { placemarks, error in
+            if error != nil {
+                print(error!)
+            }
+            self.lat = placemarks?.first?.location?.coordinate.latitude
+            self.lng = placemarks?.first?.location?.coordinate.longitude
+            annotation.coordinate = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!) as CLLocationCoordinate2D
+        }
+       
+        annotation.title = Locations.userName!
+        annotation.subtitle = Locations.mediaURL!
+        //print(Locations.location!)
         self.mapView.addAnnotation(annotation)
+        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -50,10 +59,19 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     }
     
 
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-
+    @IBAction func touchFinishButton(_ sender: Any) {
+        ParseClient.addStudentLocationInfo(httpMethod: Locations.httpMethod, firstName: UdacityClient.PublicInfo.firstName!, lastName: UdacityClient.PublicInfo.lastName!, mapString: Locations.address!, mediaURL: Locations.mediaURL!, latitude: lat!, longitude: lng!, completionHandler: finishButtonHandler(success:error:))
+        
+        
     }
     
+    func finishButtonHandler (success: Bool, error: Error?) {
+        if success {
+            print("success")
+        } else {
+            print(error!)
+        }
+    }
 
 }
 
