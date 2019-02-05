@@ -12,6 +12,7 @@
 		8D413CA121FFD45500A9473E /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D413CA021FFD45500A9473E /* LoginInfo.swift */; };
 		8D54EAD021EE007A001A7C3A /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54EACF21EE007A001A7C3A /* LoginResponse.swift */; };
 		8D6D71D22208125300862ADC /* AddParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D71D12208125300862ADC /* AddParseRequest.swift */; };
+		8D6D71D4220940EC00862ADC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D71D3220940EC00862ADC /* TabBarViewController.swift */; };
 		E26F97AC21FD26690086C046 /* AddInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AB21FD26690086C046 /* AddInfoViewController.swift */; };
 		E26F97AE21FDE4C10086C046 /* LinkedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */; };
 		E26F97B221FE5DBE0086C046 /* SessionInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */; };
@@ -54,6 +55,7 @@
 		8D413CA021FFD45500A9473E /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		8D54EACF21EE007A001A7C3A /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		8D6D71D12208125300862ADC /* AddParseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParseRequest.swift; sourceTree = "<group>"; };
+		8D6D71D3220940EC00862ADC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E26F97AB21FD26690086C046 /* AddInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoViewController.swift; sourceTree = "<group>"; };
 		E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedInViewController.swift; sourceTree = "<group>"; };
 		E26F97B121FE5DBE0086C046 /* SessionInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfoResponse.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				E26F97AB21FD26690086C046 /* AddInfoViewController.swift */,
 				E26F97AD21FDE4C10086C046 /* LinkedInViewController.swift */,
 				E26F97BB22057DD10086C046 /* FinishViewController.swift */,
+				8D6D71D3220940EC00862ADC /* TabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				E26F97B621FE5E990086C046 /* LogoutRequest.swift in Sources */,
 				E27FBDD121EB4A48004DCB42 /* UdacityClient.swift in Sources */,
 				E27FBDD721F918A6004DCB42 /* ParseClient.swift in Sources */,
+				8D6D71D4220940EC00862ADC /* TabBarViewController.swift in Sources */,
 				E27FBDCE21EB49C7004DCB42 /* LoginViewController.swift in Sources */,
 				E26F97BC22057DD10086C046 /* FinishViewController.swift in Sources */,
 				E26F97B221FE5DBE0086C046 /* SessionInfoResponse.swift in Sources */,

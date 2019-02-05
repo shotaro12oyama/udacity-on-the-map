@@ -275,10 +275,10 @@
             </objects>
             <point key="canvasLocation" x="4778.3999999999996" y="494.30284857571218"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="Pie-nq-cvH">
             <objects>
-                <tabBarController id="PSn-Zk-Xpv" sceneMemberID="viewController">
+                <tabBarController id="PSn-Zk-Xpv" customClass="TabBarViewController" customModule="udacity_on_the_map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aKI-Nx-11x"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="icon_mapview-selected" id="Wpi-OX-AMO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>

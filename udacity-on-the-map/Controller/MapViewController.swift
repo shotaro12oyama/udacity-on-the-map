@@ -22,36 +22,34 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         ParseClient.requestStudentInfoList() { parseResult, error in
             ParseClient.parse = parseResult
             DispatchQueue.main.async {
-                self.viewDidLoad()
+                var annotations = [MKPointAnnotation]()
+                for dictionary in ParseClient.parse {
+                    if dictionary.latitude != nil, dictionary.longitude != nil, dictionary.firstName != nil, dictionary.lastName != nil, dictionary.mediaURL != nil {
+                        let lat = CLLocationDegrees(dictionary.latitude!)
+                        let long = CLLocationDegrees(dictionary.longitude!)
+                        
+                        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                        
+                        let first = dictionary.firstName as! String
+                        let last = dictionary.lastName as! String
+                        let mediaURL = dictionary.mediaURL
+                        // Here we create the annotation and set its coordiate, title, and subtitle properties
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = coordinate
+                        annotation.title = "\(String(describing: first)) \(String(describing: last))"
+                        annotation.subtitle = mediaURL
+                        
+                        // Finally we place the annotation in an array of annotations.
+                        annotations.append(annotation)
+                    }
+                    
+                    
+                }
+                // When the array is complete, we add the annotations to the map.
+                self.mapView.addAnnotations(annotations)
             }
-        }
-        
-        var annotations = [MKPointAnnotation]()
-        for dictionary in ParseClient.parse {
-            if dictionary.latitude != nil, dictionary.longitude != nil, dictionary.firstName != nil, dictionary.lastName != nil, dictionary.mediaURL != nil {
-                let lat = CLLocationDegrees(dictionary.latitude!)
-                let long = CLLocationDegrees(dictionary.longitude!)
-                
-                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                
-                let first = dictionary.firstName as! String
-                let last = dictionary.lastName as! String
-                let mediaURL = dictionary.mediaURL
-                // Here we create the annotation and set its coordiate, title, and subtitle properties
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(String(describing: first)) \(String(describing: last))"
-                annotation.subtitle = mediaURL
-                
-                // Finally we place the annotation in an array of annotations.
-                annotations.append(annotation)
-            }
-            
 
         }
-        // When the array is complete, we add the annotations to the map.
-        self.mapView.addAnnotations(annotations)
-
     }
     
     // MARK: - MKMapViewDelegate
